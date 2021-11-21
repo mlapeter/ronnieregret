@@ -158,7 +158,7 @@
           "buttons": [
             {
               "text": "To be continued...",
-              "page": "to-be-continued"
+              "page": "https://prodigious-maker-4128.ck.page/396ca80230"
             }
           ]
         },
@@ -187,6 +187,12 @@
           var button = document.createElement('button');
           button.innerHTML = buttonData.text;
           button.onclick = function() {
+            // if the button has a page property beginning with 'http', 
+            // it's a link that should open in a new window
+            if (buttonData.page.indexOf('http') === 0) {
+              window.open(buttonData.page);
+            } 
+
             // if button has an actionText, display it instead of the text
             // and buttons for 3 seconds, then slowly fade it out and change the page. otherwise,
             // just change the page
@@ -202,7 +208,7 @@
               fadeIn(mainTextContainer);
               setTimeout(function() {
                 fadeOut(mainTextContainer);
-              }, 6000);
+              }, 4000);
               setTimeout(function() {
                 mainTextContainer.innerHTML = currentPage.text;
                 createButtons(currentPage.buttons);
