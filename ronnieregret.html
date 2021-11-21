@@ -1,0 +1,315 @@
+
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+
+         // an example json object with pageName, text, and buttons
+         var pages = [{
+          "pageName": "front-gate",
+          "text": "<p>The gate, ominous and heavy, rattles from the intense wind. It’s dark, and it’s late, and you’re starting to really regret coming out here after all. It was a foolish bet you made back at the bar, nonchalantly stating you’d ride over right in the middle of the night and find out once and for all what’s going on with this place. Half drunk, you boasted you’d be back before last call. That was stupid.</p><p>Now, after riding 20 miles through abandoned dirt roads and around two locked gates to get to this place, you’re starting to second guess yourself. You’ll never make it back in time, but that’s the least of your worries.  Covered in mud and banged up from the rough roads, your bike won’t even start anymore.</p><p>With nowhere to go but forward, you size up the gate. There’s a huge but rusty padlock holding a thick chain around the bars. You could probably break it, but it’d be awfully loud. Do you:</p>",
+          "buttons": [
+            {
+              "text": "Break the lock with a rock",
+              "actionText": "You see a good sized rock nearby, and heft it in your hand. As you position the padlock and prep to strike it, you notice it’s already been cut!  Someone else has been here. You take the padlock off, pull the heavy chain through the bars, and walk into the courtyard. Ahead, the hulking mansion seems to curl around you...",
+              "page": "front-door"
+            },
+            {
+              "text": "Walk around, and look for another entrance",
+              "page": "outside-dead-end"
+            }
+          ]
+        },
+        {
+        "pageName": "front-door",
+          "text": "<p>Visible from every window and suddenly feeling quite exposed in the courtyard, you can’t help but wonder if walking right in the front entrance was really the best idea.</p><p>You walk up to the door and inspect it thoroughly - it’s made of heavy oak, and this time it’s locked for real. You notice fresh scratches on the lock. Maybe whoever was here before used a key.</p>",
+          "buttons": [
+            {
+              "text": "Search for a key",
+              "page": "search-for-key"
+            },
+            {
+              "text": "Break the window next to the door",
+              "page": "break-window"
+            }
+          ]
+        },
+        {
+          "pageName": "outside-dead-end",
+          "text": "<p>Ignoring the obvious entrance in front of you, you decide to walk along the fence in hopes of finding another way. As you walk along it, the ground near the fence slopes down until you find yourself in a trench, sloshing through nearly a foot of standing water. It’s really cold and pretty uncomfortable.  And it’s getting deeper. Looking ahead, the fence stretches for what seems like a mile. This was a stupid idea.</p><p>Now wetter and colder, you head back. If you catch a cold in the future, you think to yourself, this was probably the exact moment it happened.</p>",
+          "buttons": [
+            {
+              "text": "Walk back to the gate",
+              "page": "front-gate"
+            }
+          ]
+        },
+        {
+          "pageName": "search-for-key",
+          "text": "<p>Following your instinct, you start searching. Seeing an out of place rock after a few minutes, you lift it up and find the key! Triumphant, you turn the key over in your hand as you walk towards the door. It’s large, with strange markings on the side. It’s also heavy and slippery, and as you flip it over in your hand it slips out! Luckily it lands on the stone ground in front of you.</p><p>Reflexively you lean forward to quickly grab it. As you do so your foot moves forward to support your weight, causing you to accidentally toe punt the key several steps forward. Right into a large grate two feet ahead. After many, many seconds of falling you hear the plash of the key hitting water below.</p><p>You should have been more careful. Angry now, you go get the rock and hurtle it through the small window in the door. Wrapping your hand in your jacket you reach through the broken window, feeling a heavy metal latch which you slide to open the door.</p>",
+          "buttons": [
+            {
+              "text": "Enter the mansion",
+              "page": "main-entry"
+            }
+          ]
+        },
+        {
+          "pageName": "break-window",
+          "text": "<p>You pickup the nearest rock and hurtle it through the small window in the door. The noise is incredible - much louder than you would have thought. Finding and actually using that key would have been a much better course of action. Wrapping your hand in your jacket you reach through the broken window , feeling a heavy metal latch which you slide to open the door.</p>",
+          "buttons": [
+            {
+              "text": "Enter the mansion",
+              "page": "main-entry"
+            }
+          ]
+        },
+        {
+          "pageName": "main-entry",
+          "text": '<p>The door noisily creaks open (not that it matters after the ruckus you’ve already made). You slip inside, crouched low as your eyes adjust to the darkness, You don’t see or hear anything, and you begin to breath a sigh of relief. Before you can even finish, you feel a blinding crack of pain on the right side of your head and find yourself sprawled on the ground.</p><p>You close your eyes and throw your hands up in a wimpy blocking attempt while scream-crying, waiting for the next blow. It never comes, and after a few seconds you open your now tear-stained eyes. Towering above you is a figure wielding a bat. As you blink away your scream-tears you realize it’s a woman, and that she’s actually rather petite. She’s lowering the bat, clearly disarmed by your inept display of cowardice. Her tone is still sharp though:</p><p>“Why are you following me? Who are you?” After a pause, and later you’d swear with a tiny bit of contempt - “Why are you still crying?”</p><p>“I’m not!” You sputter, rubbing your throbbing head. “I mean I’m not following you! I made a stupid bet to check this place out, I was just gonna take a quick look. I’m sorry” You sometimes hate yourself for apologizing too much, but you just. can’t. stop.</p><p>“You came here… for a bet?” She’s incredulous now. “Do you have any idea what this place is? You should leave. Like, right now.”</p>',
+          "buttons": [
+            {
+              "text": "Apologize, again, and leave",
+              "actionText": "Inexplicably, you pass up this awesome chance for adventure and companionship and start to walk out the door, head held low. Even she is surprised by your total lack of spine...",
+              "page": "die-alone"
+            },
+            {
+              "text": "Stand your ground",
+              "page": "meet-rick"
+            }
+          ]
+        },
+        {
+          "pageName": "die-alone",
+          "text": "<p>Years later, on your deathbead, you turn to your children to tell them tales of all the risks you didn't take.</p><p>But you don't have any children. Nor do you have any tales to tell. Because you didn't take any risks. You spent so much of your life trying to minimize them you forgot about the greatest one of them all - dying with a heart full of regret at all the risks you didn't take. Sad. </p>",
+          "buttons": [
+            {
+              "text": "Game Over, Man.",
+              "page": "front-gate"
+            }
+          ]
+        },
+        {
+          "pageName": "meet-rick",
+          "text": "<p>You meet Rick.</p>",
+          "buttons": [
+            {
+              "text": "Follow her into the library",
+              "page": "enter-library"
+            }
+          ]
+        },
+        {
+          "pageName": "enter-library",
+          "text": "<p>You scan the shelves ahead of you, eager to prove your worth. Looking at the curled bindings and faded lettering, you realize these books are old… 50 years? 100? Who owns this place? You run your hand along a few, streaking thick lines through what feels decades of dust. Near the bottom right corner, one book catches your eye.</p><p> Unlike the others, there’s nearly no dust on this one. The title reads “On the Origin and Anatomy of Spiders”. You start to reach for it, but an uneasy feeling stops your hand in mid-air. It it just your generalized anxiety disorder? Or something more? Do you:</p>",
+          "buttons": [
+            {
+              "text": "Hesitate, and think it through fully first",
+              "page": "hesitate-book"
+            },
+            {
+              "text": "You go for it, and confidently pull the book off the shelf",
+              "page": "take-book"
+            }
+          ]
+        },
+        {
+          "pageName": "hesitate-book",
+          "text": '<p> As you stand there indecisively starting at the book, Rick notices it too. “Look at this one…” she mentions as she walks closer. “No dust at all…” You make an involuntary murmuring noise and lift your hand ineffectually as she confidently pulls the book off the shelf. You hear a soft click, then a rumble of movement behind the shelves. A panel of what looked like solid books opens to reveal a small pack with the unmistakable hilt of a sword poking out.</p><p>Excited, Rick pulls the bag out and starts spreading the contents on the floor.  “Someone before us must have hidden this here”, she says excitedly, rummaging through her newfound treasure. There’s a leather pouch which clinks with what sounds like coins, an assortment of small vials, and many other items. But - you can’t help noticing as Rick belts the scabbard around her waist - there was only one sword.</p><p>“Nice job!” you say, but Rick is so focused on the actually useful things in front of her she’s temporarily forgotten you exist. You regret overthinking this one.</p><p>Defeated, you return to scanning the bookshelf. This time another book stands out, it’s cover somehow brighter and more vivid than the rest. “On the Balance of Risk and Reward” the title reads. You’re not going to hesitate this time, are you?</p>',
+          "buttons": [
+            {
+              "text": "Take the book",
+              "page": "take-book"
+            }
+          ]
+        },
+        {
+          "pageName": "take-book",
+          "text": "<p>Immediately, you know you made a mistake. What sounds like shrill screams muffled through the shelves starts rising from several places at once. The hissing screams grow louder as you suddenly notice movement out of holes in the corners you hadn’t even noticed before. It’s a trap of course, which you probably would have noticed had you taken the time to actually think it through instead of being so rash this time.</p><p> Suddenly 3 dog-sized spiders skitter out of the dark openings. Rick throws you a heavy leather pouch from her pack as she draws her sword. You pull the pouch open to reveal 3 heavy throwing knives. As you balance one in each hand, you look up to see one of the spiders crawling down right behind Rick, compressing it’s legs as it prepares to pounce. Do you:</p>",
+          "buttons": [
+            {
+              "text": "Throw a throwing knife at it!",
+              "page": "throw-throwing-knife"
+            },
+            {
+              "text": "Run directly towards it with a knife in each hand!",
+              "page": "run-at-spider"
+            }
+          ]
+        },
+        {
+          "pageName": "throw-throwing-knife",
+          "text": "<p>Thinking quickly, you hurl the blade at the creature. It’s a terrible throw, widely missing the spider and instead slamming into Rick's shoulder! Luckily, your throw was so bad you end up only hitting her with the hilt of the knife instead of the blade. 'OW!' she yelps as she falls over backwards from the surprise.</p><p>Last summer, you actually walked by a booth for knife throwing lessons at the fair. You meant to go, but you wanted to get a corndog first so you walked right by. The corndog was so good you ended up getting a second one and forgot about the knife throwing booth. Later, you got sick on one of the spinning rides and threw up both corndogs. You regret not taking that knife throwing lesson.</p><p>You’re gonna have to fight these guys hand-to-hand.</p>",
+          "buttons": [
+            {
+              "text": "Everyone fights. No one quits.",
+              "page": "run-at-spider"
+            }
+          ]
+        },
+        {
+          "pageName": "run-at-spider",
+          "text": "<p>You hurtle towards the creature, a knife in each hand. Before you can get there, it lungs from the shelf above towards Tara. Now on the floor, she spins just in time to stick her sword straight into the air. The dog-spider kebabs itself directly on it, making a wet bursty sound like a cherry tomato being stuck on a skewer. Only grosser.</p><p>You turn to face the other two, but your tiny blades were made for throwing, not slashing. You try to get close enough to strike, but before you can the second spider lunges onto your face, poking you in the eyeballs with it’s back feet before springing off again towards Tara, who they’ve now both realized is the real threat. Blinded, reeling from pain from what felt like two hairy thumbs pushing your eyeballs directly into your brain, you drop the knives as you involuntarily start tearing up. As you paw at your face, you hear the sound of crashing and what definitely sounds like fangs on steel. The second spider skitters over your back as you lay there, taking a moment to bite you hard in the scalp before skittering on towards Tara. You curl in a ball to protect yourself.</p><p>Suddenly you feel a hand on your shoulder - you’re not sure but you maybe passed out for a tiny bit. Tara, covered in black goo but apparently unhurt, looks down on you as she helps you up. “Are you crying?” she asks, the sound of disappointment in her voice unmistakably floating up from what was previously concern.</p>",
+          "buttons": [
+            {
+              "text": "To be continued...",
+              "page": "to-be-continued"
+            }
+          ]
+        },
+
+      ]
+
+        setPageFromUrl()
+
+        var ronnie = document.createElement('div');
+        ronnie.className = 'ronnie';
+        document.body.appendChild(ronnie);
+
+        var title = document.createElement('div');
+        title.innerHTML = '<h1>Ronnie Regret</h1>';
+        title.className = 'title';
+        ronnie.appendChild(title);
+
+        var mainTextContainer = document.createElement('div');
+        mainTextContainer.className = 'mainTextContainer';
+        mainTextContainer.innerHTML = currentPage.text;
+        ronnie.appendChild(mainTextContainer);
+
+        var buttonContainer = document.createElement('div');
+
+        function createButton(buttonData) {
+          var button = document.createElement('button');
+          button.innerHTML = buttonData.text;
+          button.onclick = function() {
+            // if button has an actionText, display it instead of the text
+            // and buttons for 3 seconds, then slowly fade it out and change the page. otherwise,
+            // just change the page
+            currentPage = pages.find(function(page) {
+                return page.pageName === buttonData.page;
+              });
+            addPageToUrl(currentPage.pageName);
+            mainTextContainer.style.opacity = 0;
+            buttonContainer.innerHTML = '';
+
+            if (buttonData.actionText) {
+              mainTextContainer.innerHTML = buttonData.actionText;
+              fadeIn(mainTextContainer);
+              setTimeout(function() {
+                fadeOut(mainTextContainer);
+              }, 6000);
+              setTimeout(function() {
+                mainTextContainer.innerHTML = currentPage.text;
+                createButtons(currentPage.buttons);
+                fadeIn(mainTextContainer);
+              }, 12000);
+            } else {
+              mainTextContainer.innerHTML = currentPage.text;
+              createButtons(currentPage.buttons);
+              fadeIn(mainTextContainer);
+            }
+          }
+          button.className = 'button';
+          return button;
+        }
+        
+        // a function to add currentPage.pageName to the url as a parameter
+        function addPageToUrl(pageName) {
+          var url = window.location.href;
+          var urlParts = url.split('?');
+          var newUrl = urlParts[0] + '?page=' + pageName;
+          window.history.pushState({}, '', newUrl);
+        }
+
+        // a function to set curentPage to the page with the pageName in the url. 
+        // default to the front-gate page if no page is found
+        function setPageFromUrl() {
+          var url = window.location.href;
+          var urlParts = url.split('?');
+          var pageName = urlParts[1] ? urlParts[1].split('=')[1] : 'front-gate';
+          currentPage = pages.find(function(page) {
+            return page.pageName === pageName;
+          });
+        }
+        
+        function createButtons(buttons) {
+          buttons.forEach(function(button) {
+            buttonContainer.appendChild(createButton(button));
+          });
+        }
+
+        createButtons(currentPage.buttons);
+
+        ronnie.appendChild(buttonContainer);
+
+
+       // function to make text slowly fade out
+        function fadeOut(element) {
+          var op = 1;  // initial opacity
+          var timer = setInterval(function () {
+            if (op <= 0.1){
+              clearInterval(timer);
+              element.style.display = 'none';
+            }
+            element.style.opacity = op;
+            element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+            op -= op * 0.1;
+          }, 200);
+        }
+
+        // function to make text slowly fade in
+        function fadeIn(element) {
+          var op = 0.1;  // initial opacity
+          element.style.display = 'block';
+          var timer = setInterval(function () {
+            if (op >= 1){
+              clearInterval(timer);
+            }
+            element.style.opacity = op;
+            element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+            op += op * 0.1;
+          }, 30);
+        }
+
+
+        /* set the font to roboto slab */
+        document.body.style.fontFamily = 'Roboto Slab, serif';
+
+        /* center everything */
+        ronnie.style.position = 'absolute';
+        ronnie.style.top = '50%';
+        ronnie.style.left = '50%';
+        ronnie.style.transform = 'translate(-50%, -50%)';
+
+        /* keep the size of ronnie div consistent */
+        ronnie.style.width = '50%';
+        ronnie.style.height = '75%';
+
+        /* display all buttons on the same line and space them equally */
+        buttonContainer.style.display = 'flex';
+        buttonContainer.style.justifyContent = 'space-evenly';
+
+        /* add some space above the buttons */
+        buttonContainer.style.marginTop = '4em';
+
+        /* add some space below the buttons */
+        buttonContainer.style.marginBottom = '4em';
+
+        /* add some margin to the button class */
+        buttonContainer.querySelectorAll('.button').forEach(function(button) {
+          button.style.margin = '0.5em';
+        });
+
+      });
+
+    </script>
+  </head>
+  <body style="margin: 0;">
+      
+  </body>
+</html>
